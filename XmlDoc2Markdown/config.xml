@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <elements>
+    <element name="type">Tipo</element>
+    <element name="method">Método</element>
+    <element name="constructor">Constructor</element>
+    <element name="method">Método</element>
+  </elements>
+</config>
