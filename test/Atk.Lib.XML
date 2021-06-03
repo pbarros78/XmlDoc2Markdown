@@ -1,0 +1,818 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atk.Lib</name>
+    </assembly>
+    <members>
+        <member name="T:Atk.Lib.Common">
+            <summary>
+            Clase con las funciones comunes
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Common.GetConfiguration(System.String,System.String,System.Boolean)">
+            <summary>
+            Obtiene un valor de la configuración (app.config o web.config)
+            </summary>
+            <param name="key">Clave o nombre a obtener</param>
+            <param name="defaultValue">Valor por defecto en caso de no existir o venir vacío</param>
+            <param name="throwError">Arrojar error en caso de no existir la clave</param>
+            <returns>Valor de la clave o valor por defecto</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.EvalVariableIsOn(System.String)">
+            <summary>
+            Evalúa si la variable (de app.config) de tipo String está dentro de los valores [1, yes, si, true, on].
+            </summary>
+            <param name="variable">Variable a evaluar.</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.IsTrue(System.String)">
+            <summary>
+            Evalúa si la variable (de app.config) de tipo String está dentro de los valores [1, yes, si, true, on]. 
+            <para>Alias de: <see cref="!:evalVariableIsOn(string)"/></para>
+            </summary>
+            <param name="value">Variable a evaluar.</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.EvalVariableIsOff(System.String)">
+            <summary>
+            Evalúa si la variable (de app.config) de tipo String está dentro de los valores [0, no, false, off].
+            </summary>
+            <param name="variable" type="String">Variable a evaluar.</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.IsFalse(System.String)">
+            <summary>
+            Evalúa si la variable (de app.config) de tipo String está dentro de los valores [0, no, false, off].
+            <para>Alias de: <see cref="!:evalVariableIsOff(string)"/></para>
+            </summary>
+            <param name="value">Variable a evaluar.</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.GetEncode(System.String)">
+            <summary>
+            Evalúa el texto para buscar un encoding válido, por defecto entrega utf8
+            </summary>
+            <param name="encoding">Texto con el encoding a evaluar</param>
+            <returns>Encoding</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.ConvertStringToBytes(System.String,System.String)">
+            <summary>
+            Convierte un string a arreglo de bytes
+            </summary>
+            <param name="text">Texto a convertir</param>
+            <param name="encoding">Encoding a usar, acepta utf8, ascii y unicode</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atk.Lib.Common.GetBytesFromString(System.String,System.String)">
+            <summary>
+            Convierte un string a arreglo de bytes
+            </summary>
+            <param name="text" type="String">Texto</param>
+            <param name="encoding" type="String">Encoding, acepta utf8, ascii y unicode</param>
+            <returns type="byte[]">Largo del texto</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.GetBytesFromString(System.String,System.Text.Encoding)">
+            <summary>
+            Convierte un string a arreglo de bytes
+            </summary>
+            <param name="text" type="String">Texto</param>
+            <param name="encode" type="Encoding">Encoding del texto</param>
+            <returns type="byte[]">Largo del texto</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.GetLengthFromString(System.String,System.String)">
+            <summary>
+            Obtiene el largo del contenido de un String según su encoding
+            </summary>
+            <param name="text" type="String">Texto</param>
+            <param name="encoding" type="String">Encoding, acepta utf8, ascii y unicode</param>
+            <returns type="Int">Largo del texto</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.GetLengthFromString(System.String,System.Text.Encoding)">
+            <summary>
+            Obtiene el largo del contenido de un String según su encoding
+            </summary>
+            <param name="text" type="String">Texto</param>
+            <param name="encoding" type="Encoding">Encoding del texto</param>
+            <returns type="Int">Largo del texto</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.DoTimeStamp(System.String)">
+            <summary>
+            Devuelve el timeStamp de la fecha actual con formatos
+            </summary>
+            <param name="Format" type="String">Formatos permitidos: YM, YMD, YMDHMS, YMDHMSN, Y-M-DTH:M:S, Y-M-D H:M:S, MY, DMY, DMYHMS, DMYHMSN, D-M-YTH:M:S, D-M-Y H:M:S</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.TimeStamp(System.String)">
+            <summary>
+            Devuelve el timeStamp de la fecha actual con formatos
+            <para>Alias de: <see cref="!:doTimeStamp(string)"/></para>
+            </summary>
+            <param name="Format" type="String">Formatos permitidos: YM, YMD, YMDHMS, YMDHMSN, Y-M-DTH:M:S, Y-M-D H:M:S, MY, DMY, DMYHMS, DMYHMSN, D-M-YTH:M:S, D-M-Y H:M:S</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.IfNullOrEmpty(System.String,System.String)">
+            <summary>
+            Devuelve el valor de la variable y si es nula o vacía, devuelve el valor por defecto
+            </summary>
+            <param name="Variable" type="String">Variable a consultar</param>
+            <param name="DefaultValue" type="String">Valor por defecto</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Atk.Lib.Common.Dictionary">
+            <summary>
+            Clase para el manejo de keys del tipo Dictionary(string, string)
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Common.Dictionary.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructor en donde se define un diccionario por defecto
+            </summary>
+            <param name="dictionary"></param>
+        </member>
+        <member name="M:Atk.Lib.Common.Dictionary.Load(System.String)">
+            <summary>
+            Carga un diccionario desde un archivo JSON
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:Atk.Lib.Common.Dictionary.Load(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Carga un diccionario desde una estructura Dictionary(string, string)
+            </summary>
+            <param name="dictionary">Estructura del tipo Dictionary(string, string)</param>
+        </member>
+        <member name="M:Atk.Lib.Common.Dictionary.Add(System.String,System.String)">
+            <summary>
+            Agrega un nuevo set al diccionario
+            </summary>
+            <param name="key">Clave</param>
+            <param name="value">Valor</param>
+        </member>
+        <member name="M:Atk.Lib.Common.Dictionary.GetValue(System.String)">
+            <summary>
+            Obtiene el valor de una key
+            </summary>
+            <param name="key">key</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atk.Lib.Common.Md5">
+            <summary>
+            Clase con funciones para MD5
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Common.Md5.Create(System.String,System.Text.Encoding)">
+            <summary>
+            Genera el Hash MD5 de un texto con cierto encoding
+            </summary>
+            <param name="input" type="String">Texto a encriptar.</param>
+            <param name="encode" type="Encoding">Encoding a utilizar</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.Md5.Create(System.String,System.String)">
+            <summary>
+            Genera el Hash MD5 de un texto con cierto encoding
+            </summary>
+            <param name="input">Texto a encriptar.</param>
+            <param name="encode">Encoding a utilizar</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Atk.Lib.Common.Base64">
+            <summary>
+            Clase con funciones para Base64
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Common.Base64.isBase64String(System.String)">
+            <summary>
+            Verifica que el texto es un Base64 válido
+            </summary>
+            <param name="s" type="String">Texto a validar</param>
+            <returns type="Boolean">True/False</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.Base64.Encode(System.String)">
+            <summary>
+            Codifica en Base64 un string
+            </summary>
+            <param name="str" type="String"></param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.Base64.DecodeString(System.String)">
+            <summary>
+            Decodifica un string en Base64
+            </summary>
+            <param name="str" type="String"></param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Common.Base64.DecodeByte(System.String)">
+            <summary>
+            Decodifica un string en Base64
+            </summary>
+            <param name="str" type="String"></param>
+            <returns>Byte</returns>
+        </member>
+        <member name="T:Atk.Lib.DataAccess.Data">
+            <summary>
+            Clase para manejo de BD para proyectos WEB
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.DataAccess.Data.TimeOut">
+            <summary>
+            Tiempo de espera para ejecutar las consultas
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.DataAccess.Data.ConnectionString">
+            <summary>
+            Cadena de conexion a Base de Datos
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.DataAccess.Data.StoredProcedure">
+            <summary>
+            Nombre del Procedimiento Almacenado
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.#ctor">
+            <summary>
+            Llamada inicial de la clase
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.#ctor(System.String,System.Int32)">
+            <summary>
+            Llamada inicial de la clase
+            </summary>
+            <param name="connectionString">Cadena de conexión a bases de datos (ODBC, SQL)</param>
+            <param name="timeOut">Tiempo de espera para las consultas</param>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.#ctor(System.String)">
+            <summary>
+            Llamada inicial de la clase
+            </summary>
+            <param name="connectionString">Cadena de conexión a bases de datos (ODBC, SQL) o Nombre (sin extensión) del archivo PrmXml</param>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.AddParameter(System.String,System.Data.DbType,System.Object,System.Int32,System.Data.ParameterDirection)">
+            <summary>
+            Agrega un Parámetro al Procedimiento Almacenado a ejecutar
+            </summary>
+            <param name="name">Nombre del Parámetro</param>
+            <param name="type">Tipo del Parámetro</param>
+            <param name="value">Valor del Parámetro</param>
+            <param name="length">Largo del Parámetro</param>
+            <param name="direction">Dirección del Parámetro</param>
+            <returns>Objeto DataAccess para encadenamiento de sintaxis</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.AddParameter(System.String,System.Object)">
+            <summary>
+            Modifica el valor de un parámetro existente
+            </summary>
+            <param name="name">Nombre del Parámetro</param>
+            <param name="value">Valor del Parámetro</param>
+            <returns>Objeto DataAccess para encadenamiento de sintaxis</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.Set(System.String)">
+            <summary>
+            Configura el nombre del Procedimiento Almacenado o Nombre (sin extensión) del archivo PrmXml
+            </summary>
+            <param name="StoredProcedure">Nombre del Procedimiento Almacenado o Nombre (sin extensión) del archivo PrmXml</param>
+            <returns>Objeto DataAccess para encadenamiento de sintaxis</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.Execute(System.String)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un DataTable
+            </summary>
+            <param name="nameCollection">Nombre de la DataTable, por defecto ROW</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteDataSet(System.String,System.String)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un DataSet
+            </summary>
+            <param name="nameRoot">Nombre del DataSet, por defecto ROWS</param>
+            <param name="nameCollection">Nombre de la DataTable, por defecto ROW</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.Execute``1">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un List del tipo (clase) pasado por parámetro
+            </summary>
+            <typeparam name="T">Tipo (clase) a ocupar para el resultado</typeparam>
+            <returns>List del tipo (clase)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteJSON``1">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un JSON (String) con la estructura del tipo (clase) pasado por parámetro
+            </summary>
+            <typeparam name="T">Tipo (clase) a ocupar para el resultado</typeparam>
+            <returns>JSON (String) con la estructura del tipo (clase)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteJSON(System.String,System.Boolean)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un JSON (String) con la estructura de la consulta recibida
+            </summary>
+            <param name="nameCollection">Nombre del Array de resultados principal, por defecto ROWS</param>
+            <param name="upperCaseNames">Nombres de campos en mayúscula = TRUE, como viene en la consulta = FALSE</param>
+            <returns>JSON (String)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteJsonObject(System.String,System.Boolean)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un Objeto JSON
+            </summary>
+            <param name="nameCollection">Nombre del Array de resultados principal, por defecto ROWS</param>
+            <param name="upperCaseNames">Nombres de campos en mayúscula = TRUE, como viene en la consulta = FALSE</param>
+            <returns>JSON (Objeto)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteJsonArray(System.String,System.Boolean)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un arreglo JSON
+            </summary>
+            <param name="nameCollection">Nombre del Array de resultados principal, por defecto ROWS</param>
+            <param name="upperCaseNames">Nombres de campos en mayúscula = TRUE, como viene en la consulta = FALSE</param>
+            <returns>JSON (Objeto)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteXML``1">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un XML (String) con la estructura del tipo (clase) pasado por parámetro
+            </summary>
+            <typeparam name="T">Tipo (clase) a ocupar para el resultado</typeparam>
+            <returns>XML (String) con la estructura del tipo (clase)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.Data.ExecuteXML(System.String,System.String)">
+            <summary>
+            Ejecuta el Procedimiento Almacenado configurado con el método Set, entregando un XML (String) con la estructura de la consulta recibida
+            </summary>
+            <param name="nameRoot">Nombre del Nodo principal, por defecto ROWS</param>
+            <param name="nameCollection">Nombre de los Nodos secundarios (lista), por defecto ROW</param>
+            <returns>XML (String)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.DataExtensions.ToJSON``1(``0,System.String,System.Boolean)">
+            <summary>
+            Convierte un objeto de tipo lista (genérica, DataTable, etc) a un string sin modificar los nombres de los campos
+            </summary>
+            <typeparam name="T">Tipo (clase) a ocupar para el resultado</typeparam>
+            <param name="o">Objeto (clase) a ocupar para el resultado, es opcional</param>
+            <param name="listName">Nombre del Array de resultados principal, por defecto ROWS</param>
+            <param name="upperCaseNames">Nombres de campos en mayúscula = TRUE, como viene en la consulta = FALSE</param>
+            <returns>JSON (string)</returns>
+        </member>
+        <member name="M:Atk.Lib.DataAccess.DataExtensions.ToXML``1(``0)">
+            <summary>
+            Convierte un objeto de tipo lista (genérica) a un string
+            </summary>
+            <typeparam name="T">Tipo (clase) a ocupar para el resultado</typeparam>
+            <param name="o">Objeto (clase) a ocupar para el resultado, es opcional</param>
+            <returns>XML (string)</returns>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.StreamWriter(System.String,System.String,System.Boolean)">
+            <summary>
+            Función para escribir archivos planos
+            </summary>
+            <param name="File" type="String">Nombre (con ruta) del archivo</param>
+            <param name="Text" type="String">Texto a escribir</param>
+            <param name="Append" type="Boolean">True para agregar en archivo</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.ReadFile(System.String)">
+            <summary>
+            Función para leer un archivo desde un servidor
+            </summary>
+            <param name="input" type="string">Nombre (con ruta) del archivo</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.ReadFully(System.IO.Stream)">
+            <summary>
+            Función para leer el contenido de un archivo (stream) y dejarlo en memoria
+            </summary>
+            <param name="input" type="stream">Archivo (stream) a leer</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.Directory.Combine(System.String,System.String[])">
+            <summary>
+            Combina una(s) estructuras de directorios
+            </summary>
+            <param name="RutaInicio" type="String">Nombre del directorio raíz</param>
+            <param name="Rutas" type="String">Arreglo con los nombres de las subcarpetas</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.Directory.Create(System.String,System.String[])">
+            <summary>
+            Crea una estructura de directorios tipo árbol
+            </summary>
+            <param name="RutaInicio" type="String">Nombre del directorio raíz</param>
+            <param name="Rutas" type="String">Arreglo con los nombres de las subcarpetas dependientes de RutaInicio</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.File.Delete(System.String)">
+            <summary>
+            Borra un archivo físico si éste existe
+            </summary>
+            <param name="FileName" type="String">Nombre del archivo</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.File.GetExtension(System.String)">
+            <summary>
+            Obtiene la extensión del archivo
+            </summary>
+            <param name="FileName" type="String">Nombre del archivo</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Atk.Lib.FileSystem.IniFile">
+            <summary>
+            Clase para manejo de archivos INI
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.#ctor">
+            <summary>
+            Constructor de la clase
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.#ctor(System.String)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="FileName">Archivo INI a consultar</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.Parse">
+            <summary>
+            Lee el archivo y lo vuelca a una estructura de tipo diccionario. De haber elementos repetidos sólo se toma el primero.
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.Parse(System.String)">
+            <summary>
+            Lee el archivo y lo vuelca a una estructura de tipo diccionario. De haber elementos repetidos sólo se toma el primero.
+            </summary>
+            <param name="FileName">Archivo INI a consultar</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.SetSection(System.String)">
+            <summary>
+            Asigna una sección del archivo INI para consultarlo directo con GET
+            </summary>
+            <param name="Section">Sección del archivo INI a consultar</param>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.Get(System.String,System.String)">
+            <summary>
+            Obtiene el valor de una clave en el archivo INI, si no lo encuentra devuelve null
+            </summary>
+            <param name="Section">Sección del archivo INI a consultar</param>
+            <param name="Name">Nombre de la clave</param>
+            <returns>Valor de la clave</returns>
+        </member>
+        <member name="M:Atk.Lib.FileSystem.IniFile.Get(System.String)">
+            <summary>
+            Obtiene el valor de una clave en el archivo INI, si no lo encuentra devuelve null
+            </summary>
+            <param name="Name">Nombre de la clave</param>
+            <returns>Valor de la clave</returns>
+        </member>
+        <member name="P:Atk.Lib.Logger.Log.Path">
+            <summary>
+            Ruta del Log
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.Logger.Log.Name">
+            <summary>
+            Nombre del Log
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.Logger.Log.Sistema">
+            <summary>
+            Sufijo del Mensaje que indica el sistema de donde se origina
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.Logger.Log.ShowFullClassName">
+            <summary>
+            Define si muestra el nombre corto o completo de la clase de donde fue llamado el evento
+            </summary>
+        </member>
+        <member name="P:Atk.Lib.Logger.Log.ShowClassMethod">
+            <summary>
+            Define si se muestra o no en el registro la clase y el método de donde fue llamado el evento
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.#ctor">
+            <summary>
+            Constructor de la clase Log
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.#ctor(System.String,System.String)">
+            <summary>
+            Constructor de la clase Log
+            </summary>
+            <param name="Path" type="String">Ruta del Log</param>
+            <param name="Name" type="String">Nombre del Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Trace(System.String)">
+            <summary>
+            Escribe un evento Trace en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Debug(System.String)">
+            <summary>
+            Escribe un evento Debug en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Info(System.String)">
+            <summary>
+            Escribe un evento Info en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Warn(System.String)">
+            <summary>
+            Escribe un evento Warn en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Error(System.String)">
+            <summary>
+            Escribe un evento Error en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Fatal(System.String)">
+            <summary>
+            Escribe un evento Fatal en el Log
+            </summary>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="M:Atk.Lib.Logger.Log.Write(System.String,System.String)">
+            <summary>
+            Escribe directamente en el Log
+            </summary>
+            <param name="type" type="String">Tipo de criticidad del mensaje</param>
+            <param name="text" type="String">Texto a escribir en el Log</param>
+        </member>
+        <member name="T:Atk.Lib.Portal">
+            <summary>
+            Clase para el manejo de variables, request y otros en portales Artikos
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Portal.GetClientIP(System.Web.HttpContext)">
+            <summary>
+            Obtiene la IP del Cliente dentro de la red Artikos
+            </summary>
+            <param name="context" type="HttpRequest">Request del contexto</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Atk.Lib.Portal.Request">
+            <summary>
+            Clase para el manejo de los Request (GET, POST, opciones string tipo QueryString)
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetPost(System.Web.HttpRequest,System.String,System.String)">
+            <summary>
+            Obtiene el request con el metodo POST y si viene vacío o no viene, se puede asignar un valor por defecto
+            </summary>
+            <param name="request" type="HttpRequest">Request del contexto</param>
+            <param name="name" type="String">Nombre de la variable</param>
+            <param name="defaultValue" type="String">Valor por defecto</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetPost(System.Web.HttpRequest,System.String)">
+            <summary>
+            Obtiene el request con el metodo POST, y si no viene devuelve null
+            </summary>
+            <param name="request" type="HttpRequest">Request del contexto</param>
+            <param name="name" type="String">Nombre de la variable</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetGet(System.Web.HttpRequest,System.String,System.String)">
+            <summary>
+            Obtiene el request con el metodo GET y si viene vacío o no viene, se puede asignar un valor por defecto
+            </summary>
+            <param name="request" type="HttpRequest">Request del contexto</param>
+            <param name="name" type="String">Nombre de la variable</param>
+            <param name="defaultValue" type="String">Valor por defecto</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetGet(System.Web.HttpRequest,System.String)">
+            <summary>
+            Obtiene el request con el metodo GET, y si no viene devuelve null
+            </summary>
+            <param name="request" type="HttpRequest">Request del contexto</param>
+            <param name="name" type="String">Nombre de la variable</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetRequest(System.Web.HttpRequest,System.String,System.String,System.String)">
+            <summary>
+            Obtiene el request (POST o GET) y si viene vacío o no viene, se puede asignar un valor por defecto
+            </summary>
+            <param name="Request" type="HttpRequest">Request del contexto</param>
+            <param name="Method" type="String">Método para la obtención del Request</param>
+            <param name="Name" type="String">Nombre de la variable</param>
+            <param name="DefaultValue" type="String">Valor por defecto - Opcional</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetRequest(System.Web.HttpRequest,System.String,System.String)">
+            <summary>
+            Obtiene el request (POST o GET) y si viene vacío o no viene, se puede asignar un valor por defecto
+            </summary>
+            <param name="Request" type="HttpRequest">Request del contexto</param>
+            <param name="Method" type="String">Método para la obtención del Request</param>
+            <param name="Name" type="String">Nombre de la variable</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Portal.Request.GetOptions(System.String,System.String)">
+            <summary>
+            Obtiene la opción de una cadena QueryString
+            </summary>
+            <param name="var" type="String">Variable que contiene el QueryString</param>
+            <param name="name" type="String">Nombre de la variable a buscar</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Atk.Lib.Portal.Session">
+            <summary>
+            Clase que sirve para interactuar con las sesiones web de ASP Clásico
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Portal.Session.#ctor(System.Web.HttpContext)">
+            <summary>
+            Setea el objeto Context
+            </summary>
+            <param name="oInContext" type="HttpContext">Requerido para su uso posterior</param>
+        </member>
+        <member name="M:Atk.Lib.Portal.Session.GetSessionValue(System.String,System.Boolean)">
+            <summary>
+            Obtiene las variables de "Session" de Artikos
+            </summary>
+            <param name="SessionVar" type="String">Nombre de la variable</param>
+            <param name="urlDecode" type="Boolean">Decodificación de URL (true por defecto)</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteData(System.Web.HttpContext,System.String,System.String,System.String)">
+            <summary>
+            Función para escribir o descargar archivos planos, JSON, XML, etc.
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="s">Texto a escribir</param>
+            <param name="typeMime">Tipo de archivo</param>
+            <param name="fileName">Nombre del archivo [opcional]</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteData(System.Web.HttpContext,System.String,Atk.Lib.Streaming.TypeMime,System.String)">
+            <summary>
+            Función para escribir o descargar archivos planos, JSON, XML, etc.
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="s">Texto a escribir</param>
+            <param name="typeMime">Tipo de archivo</param>
+            <param name="fileName">Nombre del archivo [opcional]</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteData(System.Web.HttpContext,System.Byte[],System.String,System.String)">
+            <summary>
+            Función para escribir o descargar archivos de cualquier tipo
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="b"></param>
+            <param name="typeMime">Tipo de archivo</param>
+            <param name="fileName">Nombre del archivo [opcional]</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteData(System.Web.HttpContext,System.Byte[],Atk.Lib.Streaming.TypeMime,System.String)">
+            <summary>
+            Función para escribir o descargar archivos de cualquier tipo
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="b"></param>
+            <param name="typeMime">Tipo de archivo</param>
+            <param name="fileName">Nombre del archivo [opcional]</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteJson(System.Web.HttpContext,System.String)">
+            <summary>
+            Función para escribir un JSON
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="s">JSON a escribir</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteText(System.Web.HttpContext,System.String)">
+            <summary>
+            Función para escribir un Texto plano
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="s">Texto a escribir</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.WriteFile(System.Web.HttpContext,System.String,System.String)">
+            <summary>
+            Función para escribir un Stream de un archivo de cualquier tipo
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="path">Ruta del archivo a escribir</param>
+            <param name="typeMime">Tipo de archivo</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.DownloadFile(System.Web.HttpContext,System.String,System.String,System.String)">
+            <summary>
+            Función para descargar un Stream de un archivo de cualquier tipo
+            </summary>
+            <param name="Context">Context de la página desde la cual se llama</param>
+            <param name="path">Ruta del archivo a escribir</param>
+            <param name="typeMime">Tipo de archivo</param>
+            <param name="fileName">Nombre del archivo</param>
+        </member>
+        <member name="M:Atk.Lib.Streaming.UploadFile(System.String,System.Web.HttpPostedFile,System.IO.FileMode)">
+            <summary>
+            Función para subir archivos a un servidor
+            </summary>
+            <param name="FileName" type="String">Nombre del archivo de destino (debe ir la ruta)</param>
+            <param name="dataUpload" type="HttpPostedFile">Archivo seleccionado</param>
+            <param name="Mode" type="FileMode">Modo para crear el archivo</param>
+        </member>
+        <member name="T:Atk.Lib.Streaming.TypeMime">
+            <summary>
+            Enum con Type-MIME's para uso en XS_Uploader's
+            </summary>
+        </member>
+        <member name="F:Atk.Lib.Streaming.TypeMimes">
+            <summary>
+            Type-MIME para uso en XS_Uploader's
+            </summary>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyNode(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            Verifica que un nodo XML exista y obtiene su texto, de lo contrario lanza un error.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Node" type="String">Nodo a buscar</param>
+            <param name="Message" type="String">Mensaje en caso de error.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyNode(System.Xml.XmlDocument,System.String,System.Xml.XmlNamespaceManager,System.String)">
+            <summary>
+            Verifica que un nodo XML exista y obtiene su texto, de lo contrario lanza un error.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Node" type="String">Nodo a buscar</param>
+            <param name="nsmgr" type="XmlNamespaceManager">Namespace a utilizar</param>
+            <param name="Message" type="String">Mensaje en caso de error.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyNodeNoError(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            Verifica que un nodo XML exista y obtiene su texto, de lo contrario retorna el valor por defecto.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Node" type="String">Nodo a buscar</param>
+            <param name="DefaultValue" type="String">Valor por defecto.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyNodeNoError(System.Xml.XmlDocument,System.String,System.Xml.XmlNamespaceManager,System.String)">
+            <summary>
+            Verifica que un nodo XML exista y obtiene su texto, de lo contrario retorna el valor por defecto.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Node" type="String">Nodo a buscar</param>
+            <param name="nsmgr" type="XmlNamespaceManager">Namespace a utilizar</param>
+            <param name="DefaultValue" type="String">Valor por defecto.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyTag(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            Verifica que un tag XML exista y obtiene su texto, de lo contrario lanza un error.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Tag" type="String">Tag a buscar</param>
+            <param name="Message" type="String">Mensaje en caso de error.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.VerifyTagNoError(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            Verifica que un tag XML exista y obtiene su texto, de lo contrario retorna el valor por defecto.
+            </summary>
+            <param name="XmlDoc" type="XmlDocument">Documento a verificar</param>
+            <param name="Tag" type="String">Tag a buscar</param>
+            <param name="DefaultValue" type="String">Valor por defecto.</param>
+            <returns>String</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.IsXml(System.String)">
+            <summary>
+            Valida si el texto ingresado es un XML
+            </summary>
+            <param name="xmlString">Texto XML</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.ValidateSchema(System.String,System.String)">
+            <summary>
+            Valida un XML contra un esquema XSD
+            </summary>
+            <param name="xml">Texto XML</param>
+            <param name="rutaXSD">Ruta del esquema</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.ExtractTextFromXML(System.String,System.String)">
+            <summary>
+            Extrae el texto desde un tag o nodo XML
+            </summary>
+            <param name="XmlTag">Tag o nodo</param>
+            <param name="XMLString">Texto XML</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.GetXML``1(``0,System.String)">
+            <summary>
+            Obtiene (serializa) un texto en formato XML desde una clase
+            </summary>
+            <typeparam name="T">Clase con tag [System.Xml.Serialization.XmlElement("Clase")]</typeparam>
+            <param name="toSerialize">Clase a serializar</param>
+            <param name="encoding">Encoding</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Atk.Lib.Xml.RemoveAllNamespaces(System.String)">
+            <summary>
+            Elimina los Namespaces de un XML
+            </summary>
+            <param name="xmlDocument">String del documento a procesar</param>
+            <returns>string</returns>
+        </member>
+    </members>
+</doc>
